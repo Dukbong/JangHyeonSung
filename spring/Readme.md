@@ -80,3 +80,15 @@ encoding / pom.xml(java version check) & spring version check
     SqlSessionTempate sqlSession = new SqlSessionTemplate(sqlSessionFactoyr);
 -->
 ```
+<br><br>
+#### 4. 왜 index.jsp가 가장 먼저 열리고 root-context.xml이 가장 먼저 읽히는걸까?
+```
+우선 서버가 구동되면 Server쪽에 있는 web.xml파일을 가장 먼저 읽게 되는데 이때 welcomePage 및 다양한 기본적인 library가 설정되어 있습니다.
+그리고 난 후 Project에 있는 web.xml을 읽게 되고 Project의 web.xml에서는 상단에서 root-context.xml을 읽으라는 명령이 있기 때문이다.
+<!-- 다시 작성 할것 -->
+```
+<br><br>
+#### 5. Spring에서는 @(이노테이션)을 통해 Controller 및 MappingRequest등을 할 수 있는 이유
+```
+client의 요청이 서버로 전달되면 
+```
