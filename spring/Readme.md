@@ -37,26 +37,46 @@ encoding / pom.xml(java version check) & spring version check
     
     <!-- 여기서 설정된 mapper들만 사용 가능하다. -->
     <mappers>
-        <mapper resource="mapper의 경로"
+        <mapper resource="mapper의 경로" />
+        <mapper resource="/mappers/example/example-mapper.xml" />
     </mappers>
 </configuration>
 ```
 2. (Folder)src/main/webapp/WEB-INF/spring/root-context.xml
 ```
 <!--
-    property : setter 역할
-    constructor-arg : 생성자 역
+    property : setter
+    constructor-arg : 생성자
 -->
 <!-- 1단계 DB에 사용될 기본 정보 설정 -->
 <!-- class: 실제 class Full Name / id : bean에서 불릴 식별자 -->
 <bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource">
     <!-- 여기서 쓰는 name은 개발자가 정하는게 아닌 class에서 정해진 이름이다. -->
     <properties name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-    <!-- BasicDataSource class를 dataSource라고 칭하며 클래스의 변수인 driverClassName에 oracle.jdbc.driver.OracleDriver를 대입하겠다.-->
-    <properties name="username" value="DB_ID">
-    <properties name="password" value="DB_PWD">
-    <properties name="url" value="jdbc:oracle:thin:@localhost:1521:xe">
+    <!-- BasicDataSource class를 dataSource라고 칭하며 변수 driverClassName에 oracle.jdbc.driver.OracleDriver를 대입-->
+    <properties name="username" value="DB_ID" />
+    <properties name="password" value="DB_PWD" />
+    <properties name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
 </bean>
 
-<!-- 2단계 SQL -->
+<!-- 2단계 Spring에서 mybatis를 통해 SQL 구문 등록을 위한 도구 -->
+<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactory">
+    <!-- classpath:는 (source Folder)src/main/resource를 나타낸다. -->
+    <!-- value : "삽입되는 값" / ref : "다른 bean을 참조해서 대입하는 값( 객체 )"-->
+    <properties name="configLocation" value="classpath:mybatis-config.xml"/>
+    <properties name="dataSource" ref="dataSource">
+</bean>
+<!--
+    SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactroyBean();
+    sqlSessionFactory.setConfigLocation("classpath:mybatis-config.xml");
+    sqlSessionFactory.setDataDource(dataSource);
+-->
+
+<!-- 3단계 SQL구문을 위한 Template을 제공하는 도구 등록 -->
+<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
+    <constructor-arg ref="sqlSessionFactory"/>	 	
+</bean>
+<!--
+    SqlSessionTempate sqlSession = new SqlSessionTemplate(sqlSessionFactoyr);
+-->
 ```
