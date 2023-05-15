@@ -31,3 +31,16 @@ spring-security는 외부 라이브러리이기 때문에 bean 등록을 해줘�
 <bean class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" id="bcryptPasswordEncoder"/>
 <!-- 지금부터 이 class file을 bcryptPasswordEncoder라고 부르겠다. -->
 ```
+
+만약 파일을 새로 만들어서 작성했다면 web.xml에서 경로를 잡아서 읽을 수 있게 도와줘야한다.
+
+```
+<!-- root-context와 동시에 읽을 수 있게 만들어 준다. -->
+<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+                     /WEB-INF/spring/root-context.xml
+					 /WEB-INF/spring/spring-security.xml
+		</param-value>
+	</context-param>
+```
