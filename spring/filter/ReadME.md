@@ -3,8 +3,8 @@
 기본적으로 Client | filter | Server 이런 진행 방향을 가진다. <br>
 요청(request)과 응답(response) 양방향으로 filter를 거쳐서 이동한다. <br>
 <hr>
-```
 
+```
 <!-- 기본적인 구조 -->
 <filter>
   <filter-name>Filter_Name</filter-name>
