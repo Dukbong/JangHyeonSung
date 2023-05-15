@@ -52,3 +52,10 @@ spring-security는 외부 라이브러리이기 때문에 bean 등록을 해줘�
 #### SHA-256 + salt 와 spring security의 차이
 - SHA-256 + salt는 같은 값을 집어넣으면 암호화된 같은 값이 나온다.
 - spring security는 항상 다른 암호화된 코드가 나온다.
+
+---
+
+### spring security를 사용한 후 Login 처리
+1. 아이디로만 회원 조회를 한다.
+2. matches(rawpassword, encodepassword)를 통해 비교한다 (결과값 true, false)
+3. 맞다면 login 틀리다면 errorMsg
