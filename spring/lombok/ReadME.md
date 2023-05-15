@@ -1,7 +1,8 @@
 #### lombok
-lombok은 VO에서 getter, setter, 생성자, toString등 자동으로 처리해주는 라이브러리이다. <br><br>
+lombok은 VO에서 getter, setter, 생성자, toString등 자동으로 처리해주는 라이브러리이다. <br>
 - 해당 라이브러리는 의존성 주입뿐만 아니라 별도의 설치(.jar)를 해주어야한다.
-<br>
+- VO의 변수들의 타입을 변경해도 자동으로 코드를 만들어주기때문에 간편하다.
+<br><br>
 설치 시 경로는 해당 프로그램의 경로를 잡으면 된다.<br>
 예시) C:/STS/STS-bundle/STS-1.1.1.RESESSES/STS.exe
 <hr>
