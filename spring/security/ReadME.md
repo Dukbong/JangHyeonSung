@@ -22,5 +22,12 @@ for(byte b : pwdArr){
 pwd = sb.toString();
 ```
 
-<hr>
+<hr><br>
 spring-security는 외부 라이브러리이기 때문에 bean 등록을 해줘야 사용할 수 있다.
+- root-context.xml에 해도 되지만 만약 별도의 xml파일에서 만들어주려면 xml이 아닌 Spring Bean Configuration File로 만들어줘야한다.
+- 그 후 Next를 눌러 beans와 외존성 주입으로 생긴 security를 선택하여 만들어 주면 된다.
+
+```
+<bean class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" id="bcryptPasswordEncoder"/>
+<!-- 지금부터 이 class file을 bcryptPasswordEncoder라고 부르겠다. -->
+```
