@@ -89,6 +89,31 @@ encoding / pom.xml(java version check) & spring version check
 ```
 <br><br>
 #### 5. Spring에서는 @(이노테이션)을 통해 Controller 및 MappingRequest등을 할 수 있는 이유
+
 ```
-client의 요청이 서버로 전달되면 
+<!-- servlet-context.xml파일에 작성되어 있다. -->
+<!--
+  annotation-driven은 Spring 3.0부터 제공하는 mvc 태그이다.
+  Annotation기반의 Controller 호출이나 필요한 bean설정을 편리하게 하기 위해서 만들어졌다.
+  Spring MVC @Controller에 요청을 보내기 위해 필요한 HandleMapping과 HandlerAdapter를 Bean에 등록한다.
+  - HandleMapping : Http 요청 정보를 이용해서 컨트롤러를 찾아주는 기능
+  - HandleAdapter : HandleMapping을 통해 찾은 컨트럴러를 직접 실행하는 기능 수행
+-->
+<annotation-driven/>
+
+<!--
+  context:component-scan은 특정 패키지 내의 클래스를 스캔하고
+  1. @Component
+  2. @Controller (컨트롤러)
+  3. @Service (서비스)
+  4. @Repository (Dao)
+  이 4가지를 확인하여 Bean인스턴스로 생성한다.
+  context:component-scan을 선언했다면 context:annotation-config을 선언할 필요가 없다.
+-->
+<context:component-scan base-package="기본 패키지 경로"/>
+
+<!--
+  annotation-driven과 context:component-scan base-package="기본 패키지 경로"를 통해 어노테이션을 bean에 등록해준다.
+  base-package에서 설정한 기본 패키지 경로 이하 패키지를 모두 감시하여 등록 가능한 도구(component)를 찾아 자동등록 해주는 구
+-->
 ```
