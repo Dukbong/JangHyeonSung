@@ -19,7 +19,9 @@ StringBuffer sb = new StringBuffer();
 for(byte b : pwdArr){
     sb.append(String.format("%02x", b));
 }
-pwd = sb.toString();
+String AfterSHA = sb.toString();
+System.out.println("평문 : " + pwd); // "test"
+System.out.println("암호화 : " + AfterSHA); // "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"
 ```
 
 <hr><br>
