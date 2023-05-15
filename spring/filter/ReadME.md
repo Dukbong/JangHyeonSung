@@ -24,4 +24,15 @@
   <!-- 해당 class 파일을 열어보면 forceEncoding이라는 매개변수가 있으며 타입은 Boolean이고 true를 넣겠다. -->
   <!-- true로 할 경우 인코딩 충돌문제가 발생하면 강제로 위에서 지정한 UTF-8로 하겠다는 의미다. -->
 </filter>
+<!-- 필터 등록 완료 -->
+<!-- 아래에서는 언제 이 필터를 넣을지 결정한다. -->
+
+<filter-mapping>
+  <filter-name>등록된 필터 중에 사용할 필터이름</filter-name>
+  <url-pattern>url_pattern 입력</url-pattern>
+  <!--
+    /* : 모든 요청에 대하여 이 필터를 사용하겠다.
+    /*.me : me로 끝나는 요청에 대해서 이 필터를 사용하겠다.
+  -->
+</filter-mapping>
 ```
