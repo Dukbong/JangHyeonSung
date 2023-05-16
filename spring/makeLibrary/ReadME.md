@@ -29,6 +29,7 @@
    - Maven install : local repository에 패키지를 복사한다.
    - Maven deploy : 원격 repository에 등록하여 다른 프로젝트에 사용할 수 있다.
    - ** test를 하면 test만 하는게 아니라 그 전 단계를 모두 자동으로 수행 후 실행된다.
+9. 이때 Maven install된 파일은 user/.m2/repository로 저장된다.
 
 만든 라이브라이를 프로젝트에 dependency로 의존성 주입하기
 ---
