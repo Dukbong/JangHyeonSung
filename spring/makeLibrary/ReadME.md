@@ -19,13 +19,14 @@
 5. maven.complier.source와 maven.complier.target의 버전을 나에게 맞게 변경
 6. 필요한 Library를 [Maven Repository](https://mvnrepository.com/)에서 찾아서 pom.xml에 dependency로 의존성을 주입해준다.
 7. Package 이하에서 class들을 만들어서 나만의 라이브러리를 만든다.
-8. project 우클릭 후 Run As -> Maven install
-   - Maven의 default 라이프 사이클의 주요 단계 (phase)
-   - Maven validate
+8. project 우클릭 후 Run As -> Maven install 
+   - Maven default(build) : 일반적인 빌드 프로세스를 위한 모델
+   - Maven clean : 빌드시 생성되었던 파일들을 삭제하는 단계
+   - Maven validate : 프로젝트가 올바른지 확인하고 필요한 모든 정보를 사용할 수 있는지 확인하는 단계
    - Maven complie : 소스 코드를 컴파일해서 클래스 출력 폴더에 클래스를 생성한다.
    - Maven test : 테스트를 실행한다.
    - Maven package : 컴파일 된 코드와 자원 파일들을 jar or war같은 배포 형식으로 패키징한다.
-   - Maven verify
+   - Maven verify : 통합 테스트 결과에 대한 검사를 실행하여 품질 기준을 충족한는지 확인하는 단계
    - Maven install : local repository에 패키지를 복사한다.
    - Maven deploy : 원격 repository에 등록하여 다른 프로젝트에 사용할 수 있다.
    - ** test를 하면 test만 하는게 아니라 그 전 단계를 모두 자동으로 수행 후 실행된다.
