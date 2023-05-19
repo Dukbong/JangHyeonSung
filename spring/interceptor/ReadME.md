@@ -16,15 +16,17 @@ public class InterceptorTest implements HandlerInterceptor{}
 
 ### 주요 메서드
 기본적으로 메서드들은 HttpServletRequest, HttpServletResponse, Object를 매개변수로 받는다.
-1. preHandle : DispatcherServlet -> preHandle -> Controller
-2. postHandle : Controller -> postHandle -> DispatcherServlet
-3. afterHandle : DispatcherServlet -> afterHandle -> viewResolver
+1. preHandle : DispatcherServlet -> ***preHandle*** -> Controller
+2. postHandle : Controller -> ***postHandle*** -> DispatcherServlet
+3. afterHandle : DispatcherServlet -> ***afterHandle*** -> viewResolver
 - 반환값
 - true : 문제가 없기 때문에 흐름을 유지한다.
 - false : 문제가 있기 때문에 별도의 Controller로 흐름을 바꿔줄 수 있다.
 
+<br>
+
 ## Interceptor의 등록 시점
-기본적으로 DispatcherServlet 이후의 흐름에 대해 확인하는 것이기 때문에 servlet-context.xml에서 등록해줘야 한다.
+기본적으로 DispatcherServlet 이후의 흐름에 대해 확인하는 것이기 때문에 **servlet-context.xml**에서 등록해줘야 한다.
 
 ### 등록 방법
 ```
