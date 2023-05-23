@@ -65,3 +65,4 @@
  <appender-ref ref="appenderName2"/>
  ...
 </root>
+</log4j:configuration>
