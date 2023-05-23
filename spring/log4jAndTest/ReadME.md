@@ -44,16 +44,16 @@
 #### Appender 설정
 ```
 <appender name="name" class="org.apache.log4j.[consoleAppender, FileAppender, DailyRollingFileAppender, RollingFileAppender]>
-  <!-- consoleAppender -->
+   <!-- consoleAppender -->
   <param name="paramName" value="System.out">
-  <!-- FileAppender -->
-  <!-- path 생략시 프로젝트 바로 아래에 생성된다. -->
-  <!-- 실제로는 없지만 path에 있는 폴더의 경우 자동으로 생성된다. -->
+   <!-- FileAppender -->
+   <!-- path 생략시 프로젝트 바로 아래에 생성된다. -->
+   <!-- 실제로는 없지만 path에 있는 폴더의 경우 자동으로 생성된다. -->
   <param name="file" value="path/file_name">
-  <!-- 기존 파일에 계속 내용을 추가 : true // 기존 파일에 덮어쓰기 : false -->
+   <!-- 기존 파일에 계속 내용을 추가 : true // 기존 파일에 덮어쓰기 : false -->
   <param name="append" value="true">
   
-  <!-- 가장 일반적인 형태 -->
+   <!-- 가장 일반적인 형태 -->
   <layout class="org.apache.log4j.PatternLayout">
     <param name="ConversionPattern" value="%-5p: %c - %m (%d)%n"/>
   </layout>
