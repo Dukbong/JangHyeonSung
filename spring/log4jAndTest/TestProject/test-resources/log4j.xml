@@ -52,6 +52,10 @@
  
 <!-- logger에서 테스트하고자 하는 클래스의 최하단 레벨 설정 -->
 <!-- 예시 : com.buck.bong.TestClass.java 는 com.buck.bong으로 작성 -->
+<!-- 
+    해당 경로안에 있는 클래스에서 JunitTest를 하게 되면 root에서 설정된 도구들이 실행되어
+    logger에 있는 최하단 메시지 레벨 이상의 메시지를 보여준다.
+-->
 <logger name="사용하고자 하는 Test클래스의 상위">
  <level value="[TRACE, DEBUG, INFO, WARN, ERROR, FATAL]">
 </logger>
