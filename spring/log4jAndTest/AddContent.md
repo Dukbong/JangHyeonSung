@@ -14,3 +14,8 @@ public class Member{
     private int age;
 }
 ```
+#### Builder의 특징
+메서드 체이닝으로 객체 생성 가능
+```
+Member member = Member.builder().name("NAME").age(31).build();
+```
