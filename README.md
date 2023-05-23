@@ -23,3 +23,5 @@ sqlSessionTemplate은 sqlSesion을 구현한거라서 sqlSession을 대체할 �
 
 쉽게 sqlSession 인터페이스를 구현했다 스레드에 안전하다., 트랙잭션 관리용 이라고 보면 된다.
 이건 자동으로 닫고 해준다.
+
+
