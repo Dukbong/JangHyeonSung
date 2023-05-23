@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+ 
+
+<!-- Console에 출력되는 Test 도구 -->
+<!-- 출력되는 형태는 messageLevel : 해당 ClassFullName - message (year-month-day) -->
+<appender name="consoleType" class="org.apache.log4j.ConsoleAppender">
+  <param name="Target" value="System.out"/>
+  <layout class="org.apache.log4j.PatternLayout">
+    <param name="ConversionPattern" value="%-5p: %c - %m (%d{yyyy-MM-dd})%n"/>
+  </layout>
+</appender>
+  
+<!-- File로 저장되는 Test 도구 (문서 형식 text) -->
+<!-- File 저장 경로 : 해당 Project 바로 아래 생성 -->
+<!-- 파일명 : fileName.txt -->
+<!-- 기타 사항 : 이어쓰기 -->
+<!-- 저장되는 형태는 messageLevel : 해당 ClassFullName - message (year-month-day hour:min:sec) -->
+<appender name="FileType" class="org.apache.log4j.FileAppender">
+  <param name="file" value="fileName.txt"/>
+  <param name="append" value="true"/>
+  <layout class="org.apache.log4j.PatternLayout">
+    <param name="ConversionPattern" value="%-5p: %c - %m (%d{yyyy-MM-dd HH:mm:ss})%n"/>
+  </layout>
+</appender>
+  
+<!-- File로 저장되는 Test 도구 (문서 형식 text) -->
+<!-- File 저장 경로 : C:/log 폴더 안에 생성 -->
+<!-- 파일명 : fileName.txt -->
+<!-- 기타 사항 : 덮어쓰기 -->
+<!-- 저장되는 형태는 messageLevel : 해당 ClassFullName - message (year-month-day hour:min:sec) -->
+<appender name="FileType" class="org.apache.log4j.FileAppender">
+  <param name="file" value="C:/logPack/fileName.txt"/>
+  <param name="append" value="false"/>
+  <layout class="org.apache.log4j.PatternLayout">
+    <param name="ConversionPattern" value="%-5p: %c - %m (%d{yyyy-MM-dd HH:mm:ss})%n"/>
+  </layout>
+</appender>
+  
+<!-- File로 저장되는 Test 도구 (문서 형식 xml)-->
+<!-- File 저장 경로 : C:/logpack/xmlpack 폴더 안에 생성 -->
+<!-- 파일명 : fileName -->
+<!-- 기타 사항 : 이어쓰기 -->
+<!-- 저장되는 형태는 xml형식에 맞춰서 자동 기입 -->
+<appender name="FileType" class="org.apache.log4j.FileAppender">
+  <param name="file" value="C:/logPack/xmlpack/fileName"/>
+  <param name="append" value="true"/>
+  <layout class="org.apache.log4j.xml.XMLLayout"/>
+</appender>
