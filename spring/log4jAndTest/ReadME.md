@@ -1,4 +1,4 @@
-## Junit
+## [Junit]()
 자바와 JVM계열의 언어에서 사용하는 **단위 테스트 프레임워크**를 말한다.
 
 ### 사용법
@@ -23,7 +23,7 @@
 #### log4j의 메세지 순서 (1번이 가장 낮은 순위를 가진다.)
  1. TRACE : 너무 프로그램내에서 발생하는 사소한 기록 (**작성 불가**)
  2. DEBUG : 개발할때 필요에 의해서 확인해야하는 부분에 대한 기록
-    - 기존에 System.out.println()으로 확인하는 것(휘발성)을 log4j로 할 수 있다.
+    - 기존에 System.out.println()으로 확인하는 것(휘발성)을 log4j로 출력 및 저장을 할 수 있다.
  3. INFO : 사용자에게 알려줘야 하는 정보에 대한 기록
  4. WARN : 실행은 되지만 문제가 생길 수 있는 경우 기록
     - 노란줄로 알려주는 정도 레벨의 문제
@@ -32,8 +32,10 @@
 
 #### log4j의 설정 태그와 역할
 1. logger : logging을 수행하기 위한 도구 (Logger) 설정
-2. root : 전반적인 logging 설정 (logger에서 설정하고 남은 설정을 말한다.)
-3. appender : 로깅의 대상을 설정하는 도구
+    - 여기서 출력 및 저장되는 **최하단의 레벨**을 지정할 수 있다.
+3. root : 전반적인 logging 설정 (logger에서 설정하고 남은 설정을 말한다.)
+    - appender에서 설정한 도구를 사용할 수 있게 설정해 준다.
+5. appender : 로깅의 대상을 설정하는 도구
 
 #### 사용 가능한 appender
 1. consoleAppender : console에 출력하는 도구
@@ -44,40 +46,27 @@
 #### Appender 설정
 ```
 <appender name="name" class="org.apache.log4j.[consoleAppender, FileAppender, DailyRollingFileAppender, RollingFileAppender]>
-   <!-- consoleAppender -->
+      <!-- consoleAppender -->
   <param name="paramName" value="System.out">
-   <!-- FileAppender -->
-   <!-- path 생략시 프로젝트 바로 아래에 생성된다. -->
-   <!-- 실제로는 없지만 path에 있는 폴더의 경우 자동으로 생성된다. -->
+      <!-- FileAppender -->
+      <!-- path 생략시 프로젝트 바로 아래에 생성된다. -->
+      <!-- 실제로는 없지만 path에 있는 폴더의 경우 자동으로 생성된다. -->
   <param name="file" value="path/file_name">
-   <!-- 기존 파일에 계속 내용을 추가 : true // 기존 파일에 덮어쓰기 : false -->
+      <!-- 기존 파일에 계속 내용을 추가 : true // 기존 파일에 덮어쓰기 : false -->
   <param name="append" value="true">
   
-   <!-- 가장 일반적인 형태 -->
+      <!-- 가장 일반적인 형식 -->
   <layout class="org.apache.log4j.PatternLayout">
     <param name="ConversionPattern" value="%-5p: %c - %m (%d)%n"/>
   </layout>
+      <!-- xml로 저장하고 싶다면? -->
+  <layout class="org.apache.log4j.xml.XMLLayout"/>
 </appender>
 ```
 
-
-pom.xml
-Junit과 apache Log4j 버전 확인 후 비교적 안정적인 최근 버전으로 설정 바꾸기.
-
-- log4j
-<img width="514" alt="image" src="https://github.com/Dukbong/JangHyeonSung/assets/37864182/e7407819-a9dc-4494-b16e-0ed22597abe2">
-
-<br>
-
-- Junit<br>
-<img width="346" alt="image" src="https://github.com/Dukbong/JangHyeonSung/assets/37864182/393b6072-53f9-4114-8ffe-f52c33172625">
-<br>
-
-- test할 수 있는 환경 추가
-<br>
-<img width="343" alt="image" src="https://github.com/Dukbong/JangHyeonSung/assets/37864182/ed4d6c2c-23f3-4c1e-a4ac-5a9d931efa59">
-
-
-
-<br><br>
-
+#### log4j의 메시지 레이아웃
+- % : 메세지 레벨(prority)
+- %c : 카테고리 정보, 로딩이 발생한 대상의 정보
+- %m : 메시지 (실제 로깅 정보 메시지)
+- %n : 개행문자 (new Line)
+- %b : 시간(date) 정보를 나타내며 SimpleDateFormat형식 사용 가능
