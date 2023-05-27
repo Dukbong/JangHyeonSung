@@ -74,14 +74,43 @@ setDaemon(true)라는 Method를 통해 Thread t1을 주 스레드(main)를 돕�
 이런 경우는 줄을 세워서 각자의 차례를 기다려야 정상적인 업무를 볼 수 있게 됩니다.<br>
 이걸 스레드에 적용시키면 Thread간에 동기화를 시켜서 하나의 Thread가 Method엥 접근하면 다른 Thread의 접근을 block(막는)시켜서 수행 결과가 올바르게 나올 수(Thread-safe) 있게 만듭니다.<br><br>
 
+좀더 공부가 필요하다.
 Synchroized는 어디에 쓰는 걸까?
-1. Instance Method
-2. Static Method
+1. Instance Method : Method에만 block이 생긴다.
+2. Static Method : Class자체에 block이 생긴다.
 3. Instance Method CodeBlock
 4. Static Method CodeBlock
 
 ```
+// Instance Method에 적용
 public synchroized void time(){
     String now = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
     System.out.println(now);
+}
+// Static Method에 적용
+public static synchroized void time(){
+    String now = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+    System.out.println(now);
+}
+// Instance Method CodeBlock
+public synchronized void test1(){
+    System.out.println("test1");
+}
+public void test2(){
+    synchronized(this){
+        System.out.println("test2");
+    }
+}
+// static Method CodeBlcok
+public static synchronized void test1(){
+    System.out.println("test1");
+}
+public static void test2(){
+    synchronized(MyClass.class){
+        System.out.println("test2");
+    }
+}
 ```
+<br>
+[Instance Method에 Synchronized를 적용한 예시]
+
