@@ -30,6 +30,9 @@ public class SynchronizedTest(){
         atm.withdrawal();
       }
     } // t2 끝
+    
+    t1.start();
+    t2.start();
   }
 }
 
