@@ -112,5 +112,5 @@ public static void test2(){
 }
 ```
 <br>
-[Instance Method에 Synchronized를 적용한 예시]
+[Instance Method에 Synchronized를 적용한 예시](https://github.com/Dukbong/JangHyeonSung/blob/main/spring/Scheduler/InstanceMethod_Synchronized.java)
 
