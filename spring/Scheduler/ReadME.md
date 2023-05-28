@@ -74,7 +74,7 @@ setDaemon(true)라는 Method를 통해 Thread t1을 주 스레드(main)를 돕�
 이런 경우는 줄을 세워서 각자의 차례를 기다려야 정상적인 업무를 볼 수 있게 됩니다.<br>
 이걸 스레드에 적용시키면 Thread간에 동기화를 시켜서 하나의 Thread가 Method엥 접근하면 다른 Thread의 접근을 block(막는)시켜서 수행 결과가 올바르게 나올 수(Thread-safe) 있게 만듭니다.<br><br>
 
-좀더 공부가 필요하다.
+좀더 공부가 필요하다.<br>
 Synchroized는 어디에 쓰는 걸까?
 1. Instance Method : Method에만 block이 생긴다.
 2. Static Method : Class자체에 block이 생긴다.
@@ -114,4 +114,9 @@ public static void test2(){
 <br>
 
 [Instance Method에 Synchronized를 적용한 예시](https://github.com/Dukbong/JangHyeonSung/blob/main/spring/Scheduler/InstanceMethod_Synchronized.java)
+<br><br>
+
+## 본격적인 Scheduled 사용
+@Scheduled 작업은 Srping에 의해 생성된 한개의 Thread Pool에서 실행된다. <br>
+[그래서 하나의 Scheduled가 끝나야 다음 Scheduled가 실행된다.](www.naver.com)
 
