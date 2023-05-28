@@ -118,7 +118,8 @@ public static void test2(){
 
 ## 본격적인 Scheduled 사용
 ```
-// 기본적으로 @Scheduled를 사용하려면 root-context에서 사용할 수 있도록 활성화 시켜줘야한다.
+기본적으로 @Scheduled를 사용하려면 root-context에서 사용할 수 있도록 활성화 시켜줘야한다.
+
 <task:annotation-driven/>
 ```
 
@@ -126,5 +127,8 @@ public static void test2(){
 [그래서 하나의 Scheduled가 끝나야 다음 Scheduled가 실행된다.](https://github.com/Dukbong/JangHyeonSung/blob/main/spring/Scheduler/OneThreadPool.java)
 
 위에 링크에 있는 코드의 문제점을 해결하기 위해서는 우선 Thread Pool에 여러개의 Thread를 만들게 해줘야한다.
-
+```
+이렇게 만들지 않으면 기본값으로 1개가 만들어진다.
+<task:scheduler id="schedulerName" pool-size="10"/>
+```
 
